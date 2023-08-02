@@ -71,8 +71,6 @@ def playerShots():
 
     pitch = VerticalPitch(half=True, pitch_type='opta', pitch_color='#22312b', line_color='#ffffff', axis=False)
     fig, ax = pitch.draw(figsize=(12, 9))
-
-    # shots_x = plt.scatter(shots['Y'], shots['X'], s=shots['xG']*720, c='#e74c3c', alpha=0.7)
     
     if shot_type == "Goals":
         goal_ax = plt.scatter(goal_df['Y'], goal_df['X'], s=(goal_df["xG"]* 720) + 100, c='#2ecc71', label='Goals', alpha=.7)
@@ -84,15 +82,6 @@ def playerShots():
         blocked_shot_ax = plt.scatter(blocked_shot_df['Y'], blocked_shot_df['X'], s=blocked_shot_df["xG"]* 720, c='#9b59b6', label='Blocked Shots', alpha=.7)
     elif shot_type == "MissedShots":
         missed_shot_ax = plt.scatter(missed_shot_df['Y'], missed_shot_df['X'], s=(missed_shot_df["xG"]* 720), c='#e74c3c', label='Missed Shots', alpha=.7)
-
-    # shots.plot(ax=ax[0,0])
-
-    # legend = ax.legend(loc="upper center", bbox_to_anchor= (0.14, 0.88), labelspacing=0.9, prop={'weight':'bold', 'size':11})
-    # legend.legendHandles[0]._sizes = [300]
-    # legend.legendHandles[1]._sizes = [300]
-    # legend.legendHandles[2]._sizes = [300]
-    # legend.legendHandles[3]._sizes = [300]
-    # legend.legendHandles[4]._sizes = [300]
 
     bbox_pad = 2
     bboxprops = {'linewidth': 0, 'pad': bbox_pad}
@@ -108,49 +97,9 @@ def playerShots():
 
     fig_text(x=0.42, y=0.37, s="Shots:\n\nxGcumsum:\n\nxG per shot:\n\nGoals: ", fontsize = 12, fontweight = "bold", c='#ffffff')
     fig_text(x=0.52, y=0.37, s="<{}\n\n{}\n\n{}\n\n{}>".format(total_shots,xGcumsum,xG_per_shot,goals), fontsize = 12, fontweight = "bold", c='#2ecc71')
+    
+    plt.show()
 
-
-# Hover Annotations
-# def show_hover_panel(get_text_func=None):
-#     cursor = mplcursors.cursor(
-#         hover=2,  # Transient
-#         annotation_kwargs=dict(
-#             bbox=dict(
-#                 boxstyle="square,pad=0.5",
-#                 facecolor="white",
-#                 edgecolor="#ddd",
-#                 linewidth=0.5,
-#                 path_effects=[withSimplePatchShadow(offset=(1.5, -1.5))],
-#             ),
-#             linespacing=1.5,
-#             arrowprops=None,
-#         ),
-#         highlight=True,
-#         highlight_kwargs=dict(linewidth=2),
-#     )
-
-#     if get_text_func:
-#         cursor.connect(
-#             event="add",
-#             func=lambda sel: sel.annotation.set_text(get_text_func(sel.index)),
-#         )
-        
-#     return cursor
-
-
-# def on_add(index):
-#     item = shots.iloc[index]
-#     parts = [
-#         f"xG: {item.xG:,.2f}",
-#         f"Minute: {item.minute}",
-#         f"Situation: {item.situation}"
-#             ]
-
-
-#     return "\n".join(parts)
-
-# show_hover_panel(on_add)
 
 if __name__ == "__main__":
     playerShots()
-    plt.show()
