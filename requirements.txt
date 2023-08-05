@@ -1,0 +1,8 @@
+beautifulsoup4==4.12.2
+highlight_text==0.2
+matplotlib==3.5.2
+mplcursors==0.5.2
+mplsoccer==1.2.1
+numpy==1.23.1
+pandas==1.4.3
+Requests==2.31.0
