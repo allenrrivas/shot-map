@@ -1,3 +1,13 @@
 # shot-map
 
-## $ python3 ShotMap.py [understat player url] [shot type]
+### Execution
+
+    $ python3 ShotMap.py [understat player url] [shot type]
+
+---
+
+### Example
+
+    $ python3 ShotMap.py https://understat.com/player/8260 Goals
+
+![HaalandGoals](https://github.com/allenrrivas/shot-map/assets/44716681/35e36f90-8f0d-4a67-9513-b9823646f5ee)
