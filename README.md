@@ -1,5 +1,12 @@
 # shot-map
 
+### Description
+
+Data from https://understat.com
+Shots Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots
+
+---
+
 ### Execution
 
     $ python3 ShotMap.py [understat player url] [shot type]
