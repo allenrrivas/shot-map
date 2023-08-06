@@ -15,9 +15,12 @@ Data from https://understat.com <br>
 
 ### Execute
 
-Available Shot Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots. <br><br>
-cd shot-map
-python3 ShotMap.py [understat player url] [shot type]
+Available Shot Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots.
+
+```
+    cd shot-map
+    python3 ShotMap.py [understat player url] [shot type]
+```
 
 ### Example
 
