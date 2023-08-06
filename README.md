@@ -2,7 +2,7 @@
 
 ### Description
 
-This short project was to understand how web scrapping worked and to learn a bit about data analysis in football (soccer). <br><br>
+This short project was to understand how web scrapping worked and to learn about data analysis in football (soccer). <br><br>
 Data from https://understat.com <br>
 Shots Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots.
 
