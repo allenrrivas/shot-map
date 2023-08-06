@@ -4,7 +4,6 @@
 
 This short project was to understand how web scrapping worked and to learn about data analysis in football (soccer). <br><br>
 Data from https://understat.com <br>
-Available Shot Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots.
 
 ### Install
 
@@ -16,8 +15,9 @@ Available Shot Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots.
 
 ### Execute
 
-    cd shot-map
-    python3 ShotMap.py [understat player url] [shot type]
+Available Shot Types: Goals, ShotOnPost, SavedShots, BlockedShots, MissedShots. <br><br>
+cd shot-map
+python3 ShotMap.py [understat player url] [shot type]
 
 ### Example
 
