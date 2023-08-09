@@ -15,7 +15,7 @@ Data from https://understat.com <br>
 
 ### Execute
 
-Available Shot Types: GOALS, SHOTS-ON-POST, SAVED-SHOTS, BLOCKED-SHOTS, MISSED-SHOTS.
+Available Shot Types: ALL-SHOTS, GOALS, SHOTS-ON-POST, SAVED-SHOTS, BLOCKED-SHOTS, MISSED-SHOTS.
 
 ```
 cd shot-map
@@ -24,6 +24,6 @@ python3 ShotMap.py [understat player url] [shot type]
 
 ### Example
 
-    python3 ShotMap.py https://understat.com/player/8260 Goals
+    python3 ShotMap.py https://understat.com/player/8260 ALL-SHOTS
 
 ![HaalandGoals](https://github.com/allenrrivas/shot-map/assets/44716681/e22dfec4-6ccc-4dc7-b866-e85a7752df62)
