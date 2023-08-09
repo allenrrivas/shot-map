@@ -20,8 +20,8 @@ def playerShots():
         shot_type = sys.argv[2]
     else:
         # Use Vinicius Jr. as a fall back
-        url = 'https://understat.com/player/7008'
-        shot_type = "Goals"
+        url = "https://understat.com/player/7008"
+        shot_type = "GOALS"
         
     link = url
     res = requests.get(link)
@@ -69,18 +69,31 @@ def playerShots():
     # Count number of goals
     goals = goal_df[goal_df.columns[0]].count().tolist()
 
-    pitch = VerticalPitch(half=True, pitch_type='opta', pitch_color='#22312b', line_color='#ffffff', axis=False)
+    pitch = VerticalPitch(half=True, pitch_type='opta', pitch_color='#22312b', goal_type='box', line_color='#ffffff', axis=False)
     fig, ax = pitch.draw(figsize=(12, 9))
     
-    if shot_type == "Goals":
+    if shot_type == "ALL-SHOTS" or shot_type == "ALL-SHOTS".lower():
         goal_ax = plt.scatter(goal_df['Y'], goal_df['X'], s=(goal_df["xG"]* 720) + 100, c='#2ecc71', label='Goals', alpha=.7)
-    elif shot_type == "ShotsOnPost":
         shot_on_post_ax = plt.scatter(shot_on_post_df['Y'], shot_on_post_df['X'], s=shot_on_post_df["xG"]* 720, c='#f1c40f', label='Shots On Post', alpha=.7)
-    elif shot_type == "SavedShots":
         saved_shot_ax = plt.scatter(saved_shot_df['Y'], saved_shot_df['X'], s=saved_shot_df["xG"]* 720, c='#3498db', label='Saved Shots', alpha=.7)
-    elif shot_type == "BlockedShots":
         blocked_shot_ax = plt.scatter(blocked_shot_df['Y'], blocked_shot_df['X'], s=blocked_shot_df["xG"]* 720, c='#9b59b6', label='Blocked Shots', alpha=.7)
-    elif shot_type == "MissedShots":
+        missed_shot_ax = plt.scatter(missed_shot_df['Y'], missed_shot_df['X'], s=(missed_shot_df["xG"]* 720), c='#e74c3c', label='Missed Shots', alpha=.7)
+
+        legend = ax.legend(loc="upper center", bbox_to_anchor= (0.14, 0.88), labelspacing=0.9, prop={'weight':'bold', 'size':11})
+        legend.legendHandles[0]._sizes = [300]
+        legend.legendHandles[1]._sizes = [300]
+        legend.legendHandles[2]._sizes = [300]
+        legend.legendHandles[3]._sizes = [300]
+        legend.legendHandles[4]._sizes = [300]
+    elif shot_type == "GOALS" or shot_type == "GOALS".lower():
+        goal_ax = plt.scatter(goal_df['Y'], goal_df['X'], s=(goal_df["xG"]* 720) + 100, c='#2ecc71', label='Goals', alpha=.7)
+    elif shot_type == "SHOTS-ON-POST" or shot_type == "SHOTS-ON-POST".lower():
+        shot_on_post_ax = plt.scatter(shot_on_post_df['Y'], shot_on_post_df['X'], s=shot_on_post_df["xG"]* 720, c='#f1c40f', label='Shots On Post', alpha=.7)
+    elif shot_type == "SAVED-SHOTS" or shot_type == "SAVED-SHOTS".lower():
+        saved_shot_ax = plt.scatter(saved_shot_df['Y'], saved_shot_df['X'], s=saved_shot_df["xG"]* 720, c='#3498db', label='Saved Shots', alpha=.7)
+    elif shot_type == "BLOCKED-SHOTS" or shot_type == "BLOCKED-SHOTS".lower():
+        blocked_shot_ax = plt.scatter(blocked_shot_df['Y'], blocked_shot_df['X'], s=blocked_shot_df["xG"]* 720, c='#9b59b6', label='Blocked Shots', alpha=.7)
+    elif shot_type == "MISSED-SHOTS" or shot_type == "MISSED-SHOTS".lower():
         missed_shot_ax = plt.scatter(missed_shot_df['Y'], missed_shot_df['X'], s=(missed_shot_df["xG"]* 720), c='#e74c3c', label='Missed Shots', alpha=.7)
 
     bbox_pad = 2
